@@ -11,9 +11,10 @@ class datavail {
   # Set defaults for types
 
   File {
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
   }
 
   # Packages that should be removed
@@ -235,6 +236,41 @@ class datavail {
     group  => 'root',
     mode   => '0600',
   }
+
+  # Verify file permissions
+
+  file { 'passwd':
+    path   => '/etc/passwd',
+  }
+
+  file { 'shadow':
+    path => '/etc/shadow',
+  }
+
+  file { 'gshadow':
+    path => '/etc/gshadow',
+  }
+
+  file { 'group':
+    path => '/etc/group',
+  }
+  
+  file { 'motd':
+    path => '/etc/motd',
+  }
+
+  file { 'issue':
+    path => '/etc/issue',
+  }
+
+  file { 'issue.net':
+    path => '/etc/issue.net',
+  }
+}
+
+
+
+
 
 
 
