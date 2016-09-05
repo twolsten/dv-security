@@ -126,7 +126,7 @@ class datavail {
 
   # Disable ip forwarding
 
-  sysctl { 'net.ipv4_forward':
+  sysctl { 'net.ipv4.ip_forward':
     ensure => present,
     value  => '0',
   }
@@ -156,7 +156,7 @@ class datavail {
     value  => '0',
   } 
 
-  sysctl { 'net.ipv4_icmp_echo_ignore_broadcasts':
+  sysctl { 'net.ipv4.icmp_echo_ignore_broadcasts':
     ensure => present,
     value  => '1',
   }
@@ -193,7 +193,7 @@ class datavail {
     path   => '/etc/rsyslog.conf',
     owner  => 'root',
     group  => 'root',
-    source => '/tmp/dv-security/rsyslog.conf',
+    source => '/tmp/dv-security/files/rsyslog.conf',
     notify => Service['rsyslog'],
   }
 
@@ -207,6 +207,10 @@ class datavail {
   }
 
   # Configure cron services
+
+  package { 'anacron':
+    ensure => present,
+  }
 
   service { ['anacron', 'crond']:
     ensure => running,
