@@ -7,4 +7,5 @@
 puppet module install herculesteam-augeasproviders_sysctl
 
 
+puppet apply /tmp/dv-security/manifests/init.pp
 
