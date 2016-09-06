@@ -35,7 +35,7 @@ class datavail {
 
   service { 'auditd':
     ensure  => 'running',
-    enabled => true,
+    enable  => true,
   }
 
   file { '/etc/audit/auditd.conf':
@@ -47,7 +47,7 @@ class datavail {
     notify => Service['auditd'],
   }
 
-  file { '/etc/audit/rules.d/audit.rules':
+  file { '/etc/audit/audit.rules':
     ensure => present,
     owner  => 'root',
     group  => 'root',
@@ -203,7 +203,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/tmp/dv-security/syslog',
+    source => '/tmp/dv-security/files/syslog',
   }
 
   # Configure cron services
@@ -212,7 +212,7 @@ class datavail {
     ensure => present,
   }
 
-  service { ['anacron', 'crond']:
+  service { 'crond':
     ensure => running,
     enable => true,
   }
