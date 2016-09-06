@@ -19,7 +19,7 @@ class datavail {
 
   # Packages that should be removed
   package { [ 'mctrans', 'setroubleshoot' ]:
-    ensure =>purged,
+    ensure => purged,
   }
 
   # Set file permissions.  Defaults are inheritted
@@ -107,7 +107,7 @@ class datavail {
   # Remove legacy services
 
   package { ['telnet-server', 'telnet', 'rsh-server', 'rsh', 'ypbind', 'ypserv', 'tftp', 'tftp-server', 'talk', 'talk-server']:
-    ensure => purged,
+    ensure => absent,
   }
 
   # Disable legacy services
