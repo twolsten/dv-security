@@ -203,12 +203,12 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/tmp/dv-security/files/syslog',
+    source => '/tmp/dv-security/files/logrotate',
   }
 
   # Configure cron services
 
-  package { 'anacron':
+  package { 'cronie-anacron':
     ensure => present,
   }
 
