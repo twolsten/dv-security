@@ -1,8 +1,6 @@
 1d
-Oa
 /var/log/messages
 /var/log/maillog
-/var/log/messages
 /var/log/secure
 /var/log/spooler
 /var/log/boot.log
