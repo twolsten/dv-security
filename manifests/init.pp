@@ -19,7 +19,7 @@ class datavail {
 
   # Packages that should be removed
   package { [ 'mctrans', 'setroubleshoot' ]:
-    ensure => purged,
+    ensure => absent,
   }
 
   # Set file permissions.  Defaults are inheritted
