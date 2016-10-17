@@ -43,7 +43,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '640',
-    source => '/tmp/dv-security/files/auditd.conf',
+    source => '/opt/dv-security/files/auditd.conf',
     notify => Service['auditd'],
   }
 
@@ -52,7 +52,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0640',
-    source => '/tmp/dv-security/files/audit.rules',
+    source => '/opt/dv-security/files/audit.rules',
     notify => Service['auditd'],
   }
 
@@ -63,7 +63,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/tmp/dv-security/files/selinux',
+    source => '/opt/dv-security/files/selinux',
   }
 
   file { '/etc/sysconfig/init':
@@ -71,7 +71,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/tmp/dv-security/files/init',
+    source => '/opt/dv-security/files/init',
   }
 
   # Ensure Yum has gpgcheck globally enabled
@@ -193,7 +193,7 @@ class datavail {
     path   => '/etc/rsyslog.conf',
     owner  => 'root',
     group  => 'root',
-    source => '/tmp/dv-security/files/rsyslog.conf',
+    source => '/opt/dv-security/files/rsyslog.conf',
     notify => Service['rsyslog'],
   }
 
@@ -203,7 +203,7 @@ class datavail {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/tmp/dv-security/files/logrotate',
+    source => '/opt/dv-security/files/logrotate',
   }
 
   # Configure cron services
